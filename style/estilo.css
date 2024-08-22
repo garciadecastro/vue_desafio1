@@ -1,0 +1,82 @@
+body {
+    width: 70%;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+header {
+    background-color: #0056b3;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+section, article {
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: whitesmoke;
+}
+
+h2 {
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #0056b3;
+    color: #ffffff;
+}
+
+.content-container {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que los elementos se ajusten según el tamaño de la pantalla */
+    align-items: flex-start;  /* Alinea los elementos al principio de sus respectivas columnas */
+    justify-content: center;
+}
+
+figure {
+    display: flex;        /* Hace que figure use Flexbox */
+    flex-direction: column;/* Organiza los hijos (img y figcaption) en una columna */
+    align-items: center;  /* Centra los hijos horizontalmente */
+    justify-content: start;/* Centra los hijos verticalmente (si es necesario) */
+    text-align:left; /* Asegura que el texto dentro de figcaption esté centrado */
+    padding-right: 5%;
+}
+
+article > .content-container > p {
+    flex: 1 1 50%;  /* Asigna a cada uno el 50% del espacio disponible */
+    max-width: 50%;  /* Asegura que no excedan el 50% del ancho del contenedor */
+    box-sizing: border-box;  /* Incluye padding y border en el ancho y altura total del elemento */
+}
+
+figure {
+    margin: 0;  /* Remueve cualquier margen predeterminado */
+}
+
+img {
+    max-width: 100%;   /* Asegura que la imagen sea completamente responsiva */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    border-radius: 10px; 
+}
+
+figcaption {
+    text-align: center;  /* Centra el texto de la figcaption */
+    margin-top: 10px;
+}

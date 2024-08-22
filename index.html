@@ -1,59 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-	<meta charset="UTF-8" />
-	<title>Ejemplos Directivas</title>
-	<style>
-		.unaClaseSinVue{
-			font-size: 1.2em;
-			padding:1em;
-		}
-		.redClass{
-			background:red;
-			color: white;
-			width: fit-content;
-			margin-inline: auto;
-			border: 2px solid black;
-		}
-		[v-cloak] { 
-			display: none;
-		}
-		.centrado{
-			text-align: center;
-		}
-	</style>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Cine Fantástico</title>
+		<link rel="stylesheet" href="style/estilo.css">
+	</head>
+	<body>
+		<div id="texto">
+			<header>
+				<h1>{{ titulo }}</h1>
+			</header>
+			
+			<section>
+				<h2>Las películas fantásticas </h2>
+				<p>Las películas fantásticas clásicas son un género cinematográfico que combina elementos de la fantasía, la ciencia ficción, el terror y la aventura. Estas películas nos transportan a mundos imaginarios, llenos de magia, criaturas extraordinarias y héroes legendarios. Algunas de las películas fantásticas clásicas internacionales más famosas son:</p>			
+				
+				<article v-for="pelicula in peliculas" :key="pelicula.nombre">
+						<h2>{{ pelicula.nombre }}</h2>
+						<!-- USO DE CLASE CON BOOLEANO A TRAVÉS DE vue.js -->
+						<div v-bind:class="{ 'content-container': isContentContainerActive }">
+						
+							<figure>
+								<!-- <img :src="pelicula.imagen" :alt="'Cartel de la película ' + pelicula.nombre"> SERÍA LO MISMO-->
+								<img v-bind:src="pelicula.imagen" v-bind:alt="'Cartel de la película ' + pelicula.nombre">
+								<figcaption>Cartel original de {{ pelicula.nombre }}</figcaption>
+							</figure>
+							<p>{{ pelicula.descripcion }}</p>	
+						</div>        
+				</article>	
+				
+				
+			</section>
 
-<body>
-	<div id="app" v-cloak>
-		<h1>{{mensaje}}</h1>
-
-		<p v-once>{{bienvenida}}</p>
-
-		<p v-show="visible">Esto se verá si la variable "visible" posee valor true</p>
-
-		<div class="centrado">
-			<img :src="imagen" :alt="descripcion" >
 		</div>
 
-		<div class="unaClaseSinVue" v-bind:class="{ redClass: booleano }" >
-			<p>El contenido de este div tendrá background colo rojo, porque la variable es true y vue le agrega la clase redClass</p>
-			<p>El texto no mostrará la clase redClass si la variable es false pero si muestra la clase estática que presenta desde css en el html, sin que intervenga Vue</p>
-		</div>
-		<h2 :style="{ color: colorEncabezado, fontSize: tamanioFuente + 'px', fontStyle: italica }">Encabezado con style desde Vue</h2>
+		<footer>
+			<p>Estas son sólo algunas de las películas fantásticas que han marcado el cine y la cultura popular. ¿Cuáles son tus favoritas? ¿Qué otras películas añadirías a esta lista? Comparte tu opinión en los comentarios.</p>
+		</footer>
 
-		<h3 :style="{ 'background-color': backgroundColor }">Soy un h3 con fondo naranja</h3>
-		<p v-html="dato"></p>
-		<p v-pre>Esto no lo procesa Vue: {{bienvenida}}</p>
-	</div>
-
-
-<p>{{mensaje}}</p>
-
-	<script src="scripts/vue3.js"></script> 
-	<!-- Vue framework incorporado al html -->
-	<script src="scripts/app_.js"></script>
-
-	
-</body>
+		<script src="scripts/vue3.js"></script> 
+		<!-- Vue framework incorporado al html -->
+		<script src="scripts/app_.js"></script>
+	</body>
 </html>
